@@ -2,11 +2,12 @@ package Lecture4;
 
 public class FunWithFunctions {
 
-	static int global_var=10;
+	static int global_var = 10;
+
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		// System.out.println("Hello Main");
-		// HelloFun();
+		HelloFun();
 
 		// HelloFun();
 		// HelloFun();
