@@ -1,9 +1,9 @@
 package Lecture11;
 
 public class QueuesUsingArrays {
-	private int[] data;
-	private int size;
-	private int front;
+	public int[] data;
+	public int size;
+	public int front;
 
 	public static final int DEFAULT_CAPACITY = 10;
 
@@ -68,7 +68,7 @@ public class QueuesUsingArrays {
 			int ai = (this.front + i) % this.data.length;
 			System.out.print(this.data[ai] + "=>");
 		}
-		
+
 		System.out.println("END");
 	}
 
