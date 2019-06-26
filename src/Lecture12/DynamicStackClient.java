@@ -14,10 +14,11 @@ public class DynamicStackClient {
 		stack.push(60);
 		stack.push(70);
 		stack.push(80);
-		while (!stack.isEmpty()) {
-			displayStackInfo(stack);
-			stack.pop();
-		}
+		displayStackInfo(stack);
+//		while (!stack.isEmpty()) {
+//			displayStackInfo(stack);
+//			stack.pop();
+//		}
 
 		// stack.pop();
 	}

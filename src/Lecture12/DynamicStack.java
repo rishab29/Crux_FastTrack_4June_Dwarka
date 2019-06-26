@@ -14,8 +14,16 @@ public class DynamicStack extends StacksUsingArrays {
 	}
 
 	public void push(int element) throws Exception {
-	
+		if (this.data.length == this.size()) {
+			int[] arr = new int[2 * this.data.length];
+			for (int i = 0; i < this.data.length; i++) {
+				arr[i] = this.data[i];
+			}
+			this.data = arr;
+		}
+		super.push(element);
 	}
+
 	
-	
+
 }
