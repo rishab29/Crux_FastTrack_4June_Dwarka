@@ -82,7 +82,34 @@ public class LinkedList {
 		}
 
 	}
-
+   
+	public int getFirst() throws Exception {
+		if(this.isEmpty()) {
+			throw new Exception("List is Empty");
+		}
+		
+		return this.head.data;
+	}
+	
+	public int getLast() throws Exception {
+		if(this.isEmpty()) {
+			throw new Exception("List is Empty");
+		}
+		
+		return this.tail.data;
+	}
+	
+	public int getAt(int index) throws Exception {
+		if(this.isEmpty()) {
+			throw new Exception("List is Empty");
+		}
+		
+		if(index<0||index>=this.size) {
+			throw new Exception("Invalid Index");
+		}
+		
+		return this.getNodeAt(index).data;
+	}
 	public int removeFirst() throws Exception {
 		if (this.isEmpty()) {
 			throw new Exception("List is Empty");
@@ -189,7 +216,83 @@ public class LinkedList {
 			return;
 		}
 		reversePR(node.next);
-		node.next.next=node;
+		node.next.next = node;
+	}
+
+	public int mid() {
+		return this.getMidNode().data;
+	}
+
+	private Node getMidNode() {
+		Node fast = this.head;
+		Node slow = this.head;
+		while (fast.next != null && fast.next.next != null) {
+			slow = slow.next;
+			fast = fast.next.next;
+		}
+		return slow;
+	}
+
+	public int kthNodeFromEnd(int k) throws Exception {
+		if (k <= 0 || k > this.size) {
+			throw new Exception("Invalid K");
+		}
+		Node fast = this.head;
+		Node slow = this.head;
+		for (int i = 0; i < k; i++) {
+			fast = fast.next;
+		}
+
+		while (fast != null) {
+			slow = slow.next;
+			fast = fast.next;
+		}
+
+		return slow.data;
+	}
+
+	public void createCycle() throws Exception {
+		Node temp = this.getNodeAt(2);
+		this.tail.next = temp;
+	}
+
+	public boolean detectCycle() {
+		Node fast = this.head;
+		Node slow = this.head;
+		while (fast.next != null && fast.next.next != null) {
+			slow = slow.next;
+			fast = fast.next.next;
+			if (fast == slow) {
+				return true;
+			}
+		}
+		return false;
+	}
+
+	public void reverseDR() {
+		HeapMover obj = new HeapMover(this.head);
+		this.reverseDR(obj, this.head, 0);
+	}
+
+	private void reverseDR(HeapMover obj, Node right, int index) {
+		if (right == null) {
+			return;
+		}
+		reverseDR(obj, right.next, index + 1);
+		if (index >= this.size / 2) {
+			int temp = obj.node.data;
+			obj.node.data = right.data;
+			right.data = temp;
+			obj.node = obj.node.next;
+		}
+	}
+
+	class HeapMover {
+		Node node;
+
+		public HeapMover(Node node) {
+			this.node = node;
+		}
 	}
 
 }

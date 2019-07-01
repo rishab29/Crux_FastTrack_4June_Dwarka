@@ -20,9 +20,13 @@ public class LinkedListClient {
 		//list.removeAt(2);
 		list.display();
 		
-		list.reversePR();
+		list.reverseDR();
 		list.display();
 		
+//		System.out.println(list.mid());
+//		System.out.println(list.kthNodeFromEnd(2));
+//		//list.createCycle();
+//		System.out.println(list.detectCycle());
 		
 		
 
