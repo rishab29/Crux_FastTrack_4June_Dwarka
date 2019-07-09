@@ -1,4 +1,4 @@
-package Lecture14and15.Generics;
+package Lecture18;
 
 public class LinkedList<T> {
 	private class Node {

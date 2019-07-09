@@ -49,19 +49,40 @@ public class HashMapDemo {
 		System.out.println("************************");
 		Set<Map.Entry<String, Integer>> entries = map.entrySet();
 		for (Map.Entry<String, Integer> entry : entries) {
-			//System.out.println(entry);
+			// System.out.println(entry);
 			System.out.println(entry.getKey() + "=>" + entry.getValue());
 		}
-		
-		int[] arr1= {3,5,1,4};
-		int[] arr2= {3,1,2,7,9};
+
+		int[] arr1 = { 3, 5, 1, 4 };
+		int[] arr2 = { 3, 1, 2, 7, 9 };
 		System.out.println(getIntersection(arr1, arr2));
-		
-		
+
 	}
-	
-	public static ArrayList<Integer> getIntersection(int[] arr1,int[] arr2){
+
+	public static ArrayList<Integer> getIntersection(int[] arr1, int[] arr2) {
+		HashMap<Integer, Boolean> map = new HashMap<>();
+		for (int i = 0; i < arr1.length; i++) {
+			map.put(arr1[i], false);
+		}
+
+		ArrayList<Integer> list = new ArrayList<>();
+		for (int i = 0; i < arr2.length; i++) {
+			if (map.containsKey(arr2[i])) {
+				map.put(arr2[i],true);
+			}
+		}
 		
+		Set<Map.Entry<Integer, Boolean>> entries = map.entrySet();
+		for (Map.Entry<Integer,Boolean> entry : entries) {
+			if(entry.getValue()) {
+				list.add(entry.getKey());
+			}
+		}
+		
+		
+
+		return list;
+
 	}
 
 }
