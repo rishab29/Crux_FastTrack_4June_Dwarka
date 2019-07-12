@@ -16,7 +16,7 @@ public class RecursionDemo {
 		printPermutations("abc", "");
 		
 		
-		System.out.println(getKeypadCombinations("12"));
+		//System.out.println(getKeypadCombinations("12"));
 
 	}
 
@@ -144,9 +144,9 @@ public class RecursionDemo {
 		}
 	}
 	
-	public static ArrayList<String> getKeypadCombinations(String str) {
-		
-	}
+//	public static ArrayList<String> getKeypadCombinations(String str) {
+//		
+//	}
 	
 	private static String getCode(char ch) {
 		String retVal = "";
